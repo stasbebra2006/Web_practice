@@ -1,6 +1,3 @@
-"use strict"
-
-
 const restorantData = {
 	menu: [
 		{
@@ -29,15 +26,15 @@ const restorantData = {
 
 function isOpen(prop) {
 	let answer = '';
-	prop.openNow ? answer = 'Закрыто' : answer = 'Открыто';
+	prop ? answer = 'Открыто' : answer = 'Закрыто';
 
 	return answer;
 }
 
-console.log(isOpen(restorantData));
+console.log(isOpen(restorantData.openNow))
 
 function isAverageLunchPriceTrue(fDish, sDish, average) {
-	if (+fDish.price.slice(-1) + (sDish.price.slice(-1)) < average) {
+	if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < +average.slice(0, -1)) {
 		return 'Цена ниже средней';
 	} else {
 		return 'Цена выше средней';
@@ -53,7 +50,7 @@ function transferWaitors(data) {
 	// а не лезть напрямую менять каждого из сотрудников
 	// Так как это верхний уровень объекта, то значение 
 	// будет меняться только у копии
-	copy.waitors = [{name: 'Mike', age: 32}];
+	copy.waitors = [{ name: 'Mike', age: 32 }];
 	return copy;
 }
 
