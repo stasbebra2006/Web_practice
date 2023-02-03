@@ -5,6 +5,7 @@ let timeId,
 
 
 function myAnimation() {
+    btn.removeEventListener('click', myAnimation);
     const elem = document.querySelector('.box');
     let pos = 0;
 
@@ -19,6 +20,7 @@ function myAnimation() {
             elem.style.left = pos + "px";
         }
     }
+    btn.addEventListener('click', myAnimation);
 }
 
 btn.addEventListener('click', myAnimation);
