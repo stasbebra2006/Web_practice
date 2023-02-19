@@ -11,6 +11,8 @@ const persone = {
 
 const clone = JSON.parse(JSON.stringify(persone));
 
+console.log(JSON.stringify(persone));
+
 clone.parents.mom = 'Ann';
 
 
